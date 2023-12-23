@@ -29,7 +29,7 @@ class AllProductsActivity : AppCompatActivity() {
         productModel = ArrayList()
         var subCategoryTitle: String = intent?.getStringExtra("subCategoryName").toString()
 
-        ////////////////Services Not Available
+        ////////////////Services Not Available Dialog
         servicesNotAvailableDialog = Dialog(this)
         servicesNotAvailableDialog.setContentView(R.layout.dialog_services_not_available)
         servicesNotAvailableDialog.setCancelable(false)
@@ -38,7 +38,7 @@ class AllProductsActivity : AppCompatActivity() {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-        ////////////////Services Not Available
+        ////////////////Services Not Available Dialog
 
         ////////////////loading dialog
         orderByDialog = Dialog(this)
