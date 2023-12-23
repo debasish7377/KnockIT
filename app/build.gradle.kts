@@ -6,13 +6,13 @@ plugins {
 
 android {
     namespace = "com.example.knockitUser"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.example.knockitUser"
         minSdk = 24
         //noinspection EditedTargetSdkVersion
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
