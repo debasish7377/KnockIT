@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    android:background="@color/white"
+    app:cardCornerRadius="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="520dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deals_of_the_day_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:elevation="3dp">
+    <TextView
+        android:id="@+id/deals_of_the_day_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deals Of The Day"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:fontFamily="@font/pt_serif_regular"
+        android:elevation="3dp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/deals_of_the_day_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewAll" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/viewAll"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="View All"
+            android:textSize="12dp"
+            android:fontFamily="@font/victor_mono"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/primary"
+            android:textColor="@color/primary"
+            android:background="@drawable/phone_login_ed_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

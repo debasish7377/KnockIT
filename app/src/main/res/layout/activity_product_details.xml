@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Activity.ProductDetailsActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/layout_product_details"
+                layout="@layout/layout_product_details" />
+
+            <include
+                android:id="@+id/layout_product_select_size"
+                layout="@layout/layout_product_select_size" />
+
+            <include
+                android:id="@+id/layout_product_specification"
+                layout="@layout/layout_product_specification" />
+
+            <include
+                android:id="@+id/layout_product_other_details"
+                layout="@layout/layout_product_other_details" />
+
+            <include
+                android:id="@+id/layout_product_ratting"
+                layout="@layout/layout_product_rating" />
+            <include
+                android:id="@+id/layout_product_review"
+                layout="@layout/layout_product_review" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add_to_card"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:visibility="gone"
+            android:background="@drawable/btn_buy_now"
+            android:backgroundTint="@color/primary"
+            android:drawableTint="@color/white"
+            android:elevation="3dp"
+            android:text="Add to card"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_out_of_stock"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:visibility="visible"
+            android:background="@drawable/btn_buy_now"
+            android:elevation="3dp"
+            android:text="Select Quantity"
+            android:textColor="@color/primary" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

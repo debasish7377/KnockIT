@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">knockIT</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="Them">
+
+        <item>System Default</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+</resources>
