@@ -3,6 +3,7 @@ package com.example.knockitUser.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
@@ -11,7 +12,6 @@ import com.example.knockitUser.Database.MyCartDatabase
 import com.example.knockitUser.Model.UserModel
 import com.example.knockitUser.R
 import com.example.knockitUser.databinding.ActivityMyCartBinding
-import com.example.knockitUser.databinding.ActivityProductDetailsBinding
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
@@ -36,6 +36,14 @@ class MyCartActivity : AppCompatActivity() {
         totalPrice = findViewById(R.id.total_price)
         totalSavedPrice = findViewById(R.id.totalSavedPrice)
         checkOutBtn = findViewById(R.id.check_out_btn)
+
+        setSupportActionBar(binding.toolbar);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
+        }
 
         MyCartDatabase.loadMyCart(this, binding.cartRecyclerView)
 
@@ -76,4 +84,13 @@ class MyCartActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // handle arrow click here
+        if (item.itemId == android.R.id.home) {
+            finish() // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

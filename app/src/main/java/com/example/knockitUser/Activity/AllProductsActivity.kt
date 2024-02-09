@@ -54,6 +54,10 @@ class AllProductsActivity : AppCompatActivity() {
         var oderByRattingLowToHigh: TextView = orderByDialog?.findViewById(R.id.oder_by_rating_low_high)!!
         ////////////////loading dialog
 
+        binding.backArrow.setOnClickListener {
+            finish()
+        }
+
         ProductDatabase.loadProduct(
             this,
             binding.productRecyclerView,

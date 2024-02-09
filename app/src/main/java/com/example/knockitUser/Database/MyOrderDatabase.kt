@@ -87,12 +87,9 @@ class MyOrderDatabase {
                                                                 FirebaseFirestore.getInstance()
                                                                     .collection("USERS")
                                                                     .document(FirebaseAuth.getInstance().uid.toString())
-                                                                    .addSnapshotListener { querySnapshot: DocumentSnapshot?, e: FirebaseFirestoreException? ->
-                                                                        querySnapshot?.let {
-                                                                            val userModel =
-                                                                                it.toObject(
-                                                                                    UserModel::class.java
-                                                                                )
+                                                                    .get()
+                                                                    .addOnSuccessListener(OnSuccessListener<DocumentSnapshot> { documentSnapshot ->
+                                                                        val userModel: UserModel? = documentSnapshot.toObject(UserModel::class.java)
 
                                                                             val userData: MutableMap<String, Any?> = HashMap()
                                                                             userData["delivery"] = "Pending"
@@ -104,9 +101,9 @@ class MyOrderDatabase {
                                                                             userData["address"] = address
                                                                             userData["pincode"] = pincode
                                                                             userData["city"] = city
-                                                                            userData["userToken"] = userModel?.token?.toFloat()
                                                                             userData["latitude"] = userModel?.latitude?.toFloat()
                                                                             userData["longitude"] = userModel?.longitude?.toFloat()
+                                                                            userData["userToken"] = userModel?.token?.toString()
                                                                             userData["timeStamp"] = System.currentTimeMillis().toLong()
 
                                                                             FirebaseFirestore.getInstance()
@@ -117,8 +114,7 @@ class MyOrderDatabase {
                                                                                 .update(userData)
                                                                                 .addOnCompleteListener {
                                                                                 }
-                                                                        }
-                                                                    }
+                                                                        })
 
                                                             }
                                                         }

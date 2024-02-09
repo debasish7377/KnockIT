@@ -27,6 +27,11 @@ class DealsOfTheDayActivity : AppCompatActivity() {
         binding.myCartBtn.setOnClickListener {
             startActivity(Intent(this, MyCartActivity::class.java))
         }
+
+        binding.backArrow.setOnClickListener {
+            finish()
+        }
+        
         FirebaseFirestore.getInstance()
             .collection("USERS")
             .document(FirebaseAuth.getInstance().uid.toString())

@@ -3,6 +3,7 @@ package com.example.knockitUser.Activity
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -39,6 +40,14 @@ class OrderDetailsActivity : AppCompatActivity() {
         binding = ActivityOderDetailsBinding.inflate(layoutInflater)
         val view: View = binding.getRoot()
         setContentView(view)
+
+        setSupportActionBar(binding.toolbar5);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar()?.setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar()?.setDisplayShowHomeEnabled(true);
+        }
 
         var productTitle = intent.getStringExtra("productTitle")
         var productPrice = intent.getStringExtra("productPrice")
@@ -520,5 +529,13 @@ class OrderDetailsActivity : AppCompatActivity() {
                 })
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // handle arrow click here
+        if (item.itemId == android.R.id.home) {
+            finish() // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
